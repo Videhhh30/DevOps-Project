@@ -1,0 +1,14 @@
+# Sample URLs for testing
+# Legitimate URLs
+https://www.google.com
+https://www.github.com
+https://www.wikipedia.org
+https://www.amazon.com
+https://www.microsoft.com
+
+# Suspicious/Phishing-like URLs
+http://paypal-secure-login.tk
+http://192.168.1.1/login
+http://amaz0n-account@verify.com
+http://bit.ly/xyz123
+http://www.g00gle-login.ml
