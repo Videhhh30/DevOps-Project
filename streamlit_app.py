@@ -148,6 +148,7 @@ def main():
             
             if model is None:
                 st.error("⚠️ Model not found! Please run `python main.py --mode train --dataset data/dataset.csv` first.")
+                is_phishing = False  # Default to safe if no model
             else:
                 with st.spinner("Analyzing URL..."):
                     # Prediction
