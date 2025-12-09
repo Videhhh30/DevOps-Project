@@ -1,0 +1,29 @@
+# Auto normalize all text files to Unix line endings (LF)
+# This prevents CRLF issues when cloning on Windows
+
+# Shell scripts - always use Unix line endings
+*.sh text eol=lf
+entrypoint.sh text eol=lf
+
+# Python files
+*.py text eol=lf
+
+# Text files
+*.txt text eol=lf
+*.md text eol=lf
+*.csv text eol=lf
+
+# Config files
+*.yml text eol=lf
+*.yaml text eol=lf
+.dockerignore text eol=lf
+.gitignore text eol=lf
+Dockerfile text eol=lf
+
+# Binary files
+*.pkl binary
+*.h5 binary
+*.model binary
+
+# Auto detect
+* text=auto

@@ -35,8 +35,9 @@ ENV PATH=/root/.local/bin:$PATH \
 # Copy application code
 COPY . .
 
-# Make entrypoint script executable
-RUN chmod +x /app/entrypoint.sh
+# Fix line endings (CRLF -> LF) and make entrypoint script executable
+# This ensures compatibility regardless of how files were copied or cloned
+RUN sed -i 's/\r$//' /app/entrypoint.sh && chmod +x /app/entrypoint.sh
 
 # Expose ports
 EXPOSE 8501 8000
