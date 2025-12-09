@@ -98,6 +98,97 @@ python main.py --mode simulate --infection-rate 0.3 --network-type barabasi
 python scripts/check_url.py
 ```
 
+## 🐳 Docker Deployment
+
+### Prerequisites
+- [Docker](https://docs.docker.com/get-docker/) installed on your system
+- [Docker Compose](https://docs.docker.com/compose/install/) (optional, but recommended)
+
+### Quick Start with Docker
+
+**1. Build and run the container using docker-compose (easiest):**
+```bash
+docker-compose up --build
+```
+Then open your browser to `http://localhost:8501`
+
+**2. Or build and run manually:**
+```bash
+# Build the Docker image
+docker build -t phishing-detector:latest .
+
+# Run the Streamlit app
+docker run -p 8501:8501 phishing-detector:latest
+
+# Open http://localhost:8501 in your browser
+```
+
+**3. Run CLI commands in Docker:**
+```bash
+# Train the model
+docker run phishing-detector:latest python main.py --mode train --dataset data/dataset.csv
+
+# Predict a URL
+docker run phishing-detector:latest python main.py --mode predict --url "http://example.com"
+
+# Run network simulation
+docker run phishing-detector:latest python main.py --mode simulate --infection-rate 0.3
+```
+
+### Docker Compose Services
+
+The `docker-compose.yml` includes:
+- **phishing-detector** (port 8501): Main Streamlit app with health checks
+- **jupyter** (port 8888): Jupyter Lab for interactive exploration (optional)
+
+Start both services:
+```bash
+docker-compose up
+```
+
+Access:
+- Streamlit: http://localhost:8501
+- Jupyter Lab: http://localhost:8888
+
+### Volumes and Data Persistence
+
+Data and models are mounted as volumes:
+- `./data` → `/app/data` (dataset files)
+- `./models` → `/app/models` (trained models)
+- `./logs` → `/app/logs` (application logs)
+
+This allows you to:
+- Add new datasets without rebuilding the image
+- Share trained models between containers
+- Persist logs and outputs
+
+### Troubleshooting Docker
+
+**Port already in use?**
+```bash
+# Use a different port
+docker run -p 9501:8501 phishing-detector:latest
+
+# For docker-compose, edit docker-compose.yml ports
+```
+
+**Check container logs:**
+```bash
+docker logs phishing-url-detector
+docker logs phishing-jupyter
+```
+
+**Stop containers:**
+```bash
+docker-compose down
+```
+
+**Remove everything (images, volumes, containers):**
+```bash
+docker-compose down -v
+docker image rm phishing-detector:latest
+```
+
 ## 📊 How It Works
 
 ### 1. Phishing Detection
