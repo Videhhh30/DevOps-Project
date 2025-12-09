@@ -250,6 +250,24 @@ python tests/test_all.py
 - matplotlib, seaborn (visualization)
 - streamlit (web interface)
 
+## 📦 Pull Prebuilt Docker Image (GHCR)
+
+I published a GitHub Actions workflow that automatically builds and pushes a prebuilt image to GitHub Container Registry (GHCR) on each push to `master`.
+
+To pull and run the prebuilt image on any machine (no build required):
+
+```bash
+# Pull the image (replace OWNER if different)
+docker pull ghcr.io/Videhhh30/devops-project:latest
+
+# Run the container
+docker run -d --name phishing-detector -p 8501:8501 ghcr.io/Videhhh30/devops-project:latest
+
+# Open http://localhost:8501
+```
+
+If you prefer Docker Hub instead, I can add a workflow to push there as well — tell me and I will add it.
+
 ## 🎓 Academic Use
 
 This project demonstrates:
