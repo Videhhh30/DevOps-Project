@@ -71,9 +71,9 @@ ENV/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# Models (optional - uncomment if models are too large)
-# models/*.pkl
-# models/*.h5
+# Models - avoid committing large trained artifacts
+models/*.pkl
+models/*.h5
 
 # Outputs
 outputs/*.png

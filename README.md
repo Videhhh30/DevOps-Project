@@ -1,5 +1,10 @@
 # Phishing URL Detection and Social Network Spread Simulation
 
+![GHCR Publish](https://github.com/Videhhh30/DevOps-Project/actions/workflows/publish-ghcr.yml/badge.svg)
+![GHCR Tags](https://github.com/Videhhh30/DevOps-Project/actions/workflows/publish-ghcr-tags.yml/badge.svg)
+![Docker Hub (master)](https://github.com/Videhhh30/DevOps-Project/actions/workflows/publish-dockerhub-master.yml/badge.svg)
+![Docker Hub (tags)](https://github.com/Videhhh30/DevOps-Project/actions/workflows/publish-dockerhub-tags.yml/badge.svg)
+
 A comprehensive machine learning system that detects phishing URLs and simulates their spread through social networks using a Streamlit web interface.
 
 ## 🎯 Features
