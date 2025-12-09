@@ -39,15 +39,44 @@ venv.bak/
 # Jupyter
 .ipynb_checkpoints
 .jupyter
+notebooks/
+*.ipynb
 
 # Testing
 .pytest_cache/
 .coverage
 htmlcov/
+tests/
 
 # Logs
 *.log
 logs/
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+docs/
+README*
+CONTRIBUTING*
+COLLABORATORS*
+
+# GitHub Actions
+.github
+
+# Development
+docker-compose.override.yml
+
+# OS
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+
 
 # Large files
 *.pkl

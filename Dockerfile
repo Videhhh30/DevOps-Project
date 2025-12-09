@@ -35,9 +35,12 @@ ENV PATH=/root/.local/bin:$PATH \
 # Copy application code
 COPY . .
 
+# Make entrypoint script executable
+RUN chmod +x /app/entrypoint.sh
+
 # Expose ports
 EXPOSE 8501 8000
 
-# Default command: run Streamlit app
-# Override with `docker run ... python main.py --mode <mode>` for CLI modes
-CMD ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# Use entrypoint script for automatic model training and Streamlit startup
+# The script checks if model exists, trains if needed, then starts Streamlit
+ENTRYPOINT ["/bin/bash", "/app/entrypoint.sh"]
